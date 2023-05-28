@@ -22,12 +22,12 @@ export class CustomersService {
     }
 
     async updateOne(id: number, customer: ICustomer) {
-        const existingProduct = this.getOne(id);
-        if (!existingProduct) {
+        const existingCustomers = this.getOne(id);
+        if (!existingCustomers) {
             return null;
         }
-        const updatedProduct = Object.assign(existingProduct, customer);
-        await this.addOne(updatedProduct);
+        const updatedCustomers = Object.assign(existingCustomers, customer);
+        await this.addOne(updatedCustomers);
         return CUSTOMERS_LIST;
     }
 }
