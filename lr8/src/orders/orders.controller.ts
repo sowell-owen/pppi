@@ -1,9 +1,17 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { OrdersService } from './orders.service';
-import { IOrder, IOrdersController } from "./types";
+import { IOrder, IOrdersController } from './types';
 
 @Controller('orders')
-export class OrdersController implements IOrdersController{
+export class OrdersController implements IOrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
   @Get()

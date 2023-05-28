@@ -1,12 +1,21 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { IProduct, IProductsController } from "./types";
+import { IProduct, IProductsController } from './types';
+import { Public } from '../auth/auth.decorators';
 
 @Controller('products')
 export class ProductsController implements IProductsController {
-  constructor(private readonly productsService: ProductsService) {
-  }
+  constructor(private readonly productsService: ProductsService) {}
 
+  @Public()
   @Get()
   async getAll() {
     return await this.productsService.getAll();
